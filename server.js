@@ -3,6 +3,7 @@ const app = express();
 const path = require("path");
 
 const userRoutes = require("./routes/user.routes");
+const homeRoutes = require("./routes/home.routes");
 
 require("dotenv").config({ path: path.join(__dirname, "config/.env") });
 require("dotenv").config({ path: path.join(__dirname, "config/.env.local") });
@@ -12,6 +13,7 @@ const port = process.env.PORT;
 
 app.use(express.json());
 
+app.use("/", homeRoutes);
 app.use("/user", userRoutes);
 
 app.listen(port, () => {
