@@ -37,3 +37,8 @@ module.exports.signIn = async (req, res) => {
     res.status(400).send({ err });
   }
 };
+
+module.exports.logOut = (req, res) => {
+  res.cookie("jwt", "", { httpOnly: true, maxAge: 0 });
+  res.redirect("/");
+};
