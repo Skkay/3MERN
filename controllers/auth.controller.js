@@ -18,7 +18,15 @@ module.exports.signUp = async (req, res) => {
       lastName,
       password,
     });
-    res.status(201).json({ user: user._id });
+
+    const req = {
+        body: {
+            email: email,
+            password: password
+        }
+    }
+    
+    this.signIn(req, res)
   } catch (err) {
     res.status(400).send({ err });
   }

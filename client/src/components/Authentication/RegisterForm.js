@@ -22,7 +22,7 @@ const RegisterForm = () => {
       },
     })
     .then((res) => {
-      window.location = "/login";
+      window.location = "/";
     })
     .catch((err) => {
       console.error(err);
