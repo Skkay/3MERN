@@ -25,7 +25,7 @@ app.get("/require_auth", requireAuth, (req, res) => {
 });
 
 app.use("/", homeRoutes);
-app.use("/api//user", userRoutes);
+app.use("/user", userRoutes);
 
 app.listen(port, () => {
   console.log(`Listening on http://localhost:${port}`);
