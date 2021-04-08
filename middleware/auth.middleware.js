@@ -10,7 +10,9 @@ module.exports.checkUser = (req, res, next) => {
         res.cookies("jwt", "", { maxAge: 0 });
         next();
       } else {
-        let user = await UserModel.findById(decodedToken.id);
+        const user = await UserModel.findById(decodedToken.id).select(
+          "-password"
+        );
         res.locals.user = user;
         next();
       }
