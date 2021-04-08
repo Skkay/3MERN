@@ -1,4 +1,4 @@
-import "./styles/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
   Redirect,
@@ -6,12 +6,14 @@ import {
   Switch,
 } from "react-router-dom";
 import React from "react";
+import Navbar from './components/Navbar'
 import Home from "./pages/Home";
 import LoginView from "./pages/LoginView";
 
 function App() {
   return (
     <div>
+      <Navbar />
       <Router>
         <Switch>
           <Route path="/" exact component={Home} />
