@@ -12,6 +12,9 @@ require("./config/database.js");
 const port = process.env.PORT;
 
 app.use(express.json());
+app.use(cookieParser());
+
+app.get("*", checkUser);
 
 app.use("/", homeRoutes);
 app.use("/user", userRoutes);
