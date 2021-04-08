@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/bootstrap.min.css";
 import Routes from "./components/Routes";
 
 function App() {
