@@ -21,3 +21,20 @@ module.exports.checkUser = (req, res, next) => {
   }
 };
 
+module.exports.requireAuth = (req, res, next) => {
+  const token = req.cookies.jwt;
+  if (token) {
+    jwt.verify(token, process.env.JWT_SECRET, async (err, decodedToken) => {
+      if (err) {
+        console.error(err);
+        next();
+      } else {
+        console.log(decodedToken.id);
+        next();
+      }
+    });
+  } else {
+    console.warn("No token found");
+  }
+  next();
+};

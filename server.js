@@ -1,9 +1,11 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const app = express();
 const path = require("path");
 
 const userRoutes = require("./routes/user.routes");
 const homeRoutes = require("./routes/home.routes");
+const { checkUser, requireAuth } = require("./middleware/auth.middleware");
 
 require("dotenv").config({ path: path.join(__dirname, "config/.env") });
 require("dotenv").config({ path: path.join(__dirname, "config/.env.local") });
@@ -15,6 +17,12 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.get("*", checkUser);
+app.get("/require_auth", requireAuth, (req, res) => {
+  if (!res.locals.user) {
+    res.status(401).send("No token found");
+  }
+  res.status(200).send(res.locals.user);
+});
 
 app.use("/", homeRoutes);
 app.use("/user", userRoutes);
