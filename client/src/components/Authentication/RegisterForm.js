@@ -35,19 +35,19 @@ const RegisterForm = () => {
       <hr />
       <form action="" onSubmit={handleRegister} id="registerForm">
         <div className="form-group">
-          <label for="firstname">First name</label>
+          <label htmlFor="firstname">First name</label>
           <input type="text" className="form-control" id="firstname" required onChange={(e) => setFirstName(e.target.value)} />
         </div>
         <div className="form-group">
-          <label for="lastname">Last name</label>
+          <label htmlFor="lastname">Last name</label>
           <input type="text" className="form-control" id="lastname" required onChange={(e) => setLastName(e.target.value)} />
         </div>
         <div className="form-group">
-          <label for="email">Email address</label>
+          <label htmlFor="email">Email address</label>
           <input type="email" className="form-control" id="email" required onChange={(e) => setEmail(e.target.value)} />
         </div>
         <div className="form-group">
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
           <input type="password" className="form-control" id="password" required onChange={(e) => setPassword(e.target.value)} />
         </div>
         <button type="submit" className="btn btn-primary">Submit</button>
