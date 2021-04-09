@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Card = (props) => {
   const width = "37.6rem";
+  const [liked, setLiked] = useState(true);
 
   return (
     <div className="card m-3" style={{width: width}}>
       <div className="card-body">
         <div className="row">
           <div className="col-8 col-sm-6">
-            <h5 className="card-title">Paris, FR</h5>
+            <h5 className="card-title"><button className="ButtonLink p-0 mr-2"><i className={liked ? "bi bi-heart-fill" : "bi bi-heart"} style={{color: "#E0245E"}} /></button>Paris, FR</h5>
             <p className="card-text text-muted text-capitalize">broken clouds</p>
             <h1>20°C</h1>
             <p className="m-0 font-weight-bold">Feels like: 18°C</p>
