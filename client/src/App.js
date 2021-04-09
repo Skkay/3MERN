@@ -10,6 +10,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import LoginView from "./pages/LoginView";
+import SearchView from "./pages/SearchView";
 import { UidContext } from "./components/AppContext";
 import axios from "axios";
 
@@ -40,6 +41,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/login" exact component={LoginView} />
+          <Route path="/search" exact component={SearchView} />
           <Redirect to="/" />
         </Switch>
       </Router>
