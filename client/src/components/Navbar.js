@@ -1,9 +1,29 @@
-import React from "react";
 import React, { useContext } from "react";
 import { UidContext } from "../components/AppContext";
+import axios from 'axios';
+import cookie from "js-cookie";
 
 const Navbar = () => {
   const uid = useContext(UidContext);
+
+  const removeCookie = (key) => {
+    if (window !== "undefined") {
+      cookie.remove(key, { expires: 1 });
+    }
+  };
+
+  const handleLogout = async () => {
+    await axios({
+      method: "get",
+      url: `${process.env.REACT_APP_API_URL}/user/logout`,
+      withCredentials: true,
+    })
+      .then(() => removeCookie("jwt"))
+      .catch((err) => console.log(err));
+    
+    window.location = "/";
+  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
       <div className="container">
@@ -20,7 +40,7 @@ const Navbar = () => {
             {uid ? (
               <ul className="navbar-nav">
                 <li className="nav-item">
-                    <a className="nav-link" href="#">Deconnexion</a>
+                    <button className="nav-link" onClick={handleLogout}>Deconnexion</button>
                 </li>
               </ul>
             ) : (
