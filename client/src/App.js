@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
+import Home from "./pages/HomeView";
 import LoginView from "./pages/LoginView";
 import SearchView from "./pages/SearchView";
 import { UidContext } from "./components/AppContext";
