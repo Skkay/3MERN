@@ -40,7 +40,7 @@ const Navbar = () => {
             {uid ? (
               <ul className="navbar-nav">
                 <li className="nav-item">
-                    <button className="nav-link" onClick={handleLogout}>Deconnexion</button>
+                    <button className="nav-link ButtonLink" onClick={handleLogout}>Deconnexion</button>
                 </li>
               </ul>
             ) : (

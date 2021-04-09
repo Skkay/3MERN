@@ -23,10 +23,10 @@ const LoginView = () => {
           <div className="card-header">
             <ul className="nav nav-tabs card-header-tabs">
               <li className="nav-item">
-                <button className={loginFormComponent ? "nav-link active" : "nav-link"} id="login" onClick={handleClick}>Connexion</button>
+                <button className={loginFormComponent ? "nav-link ButtonLink  active" : "nav-link ButtonLink"} id="login" onClick={handleClick}>Connexion</button>
               </li>
               <li className="nav-item">
-                <button className={registerFormComponent ? "nav-link active" : "nav-link"} id="register" onClick={handleClick}>Inscription</button>
+                <button className={registerFormComponent ? "nav-link ButtonLink active" : "nav-link ButtonLink"} id="register" onClick={handleClick}>Inscription</button>
               </li>
             </ul>
           </div>
