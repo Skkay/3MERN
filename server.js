@@ -31,7 +31,7 @@ app.get("/require_auth", requireAuth, (req, res) => {
   if (!res.locals.user) {
     res.status(401).send("No token found");
   }
-  res.status(200).send(res.locals.user);
+  res.status(200).send(res.locals.user._id);
 });
 
 app.use("/", homeRoutes);

@@ -1,18 +1,39 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import {
   BrowserRouter as Router,
   Redirect,
   Route,
   Switch,
 } from "react-router-dom";
-import React from "react";
-import Navbar from './components/Navbar'
+import React, { useEffect, useState } from "react";
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import LoginView from "./pages/LoginView";
+import { UidContext } from "./components/AppContext";
+import axios from "axios";
 
 function App() {
+  const [uid, setUid] = useState(null);
+
+  useEffect(() => {
+    const fetchToken = async () => {
+      await axios({
+        method: "GET",
+        url: `${process.env.REACT_APP_API_URL}/require_auth`,
+        withCredentials: true,
+      })
+        .then((res) => {
+          console.log("res fetech token :")
+          console.log(res);
+          setUid(res.data);
+        })
+        .catch((err) => console.error("No token found"));
+    };
+    fetchToken();
+  }, [uid]);
+
   return (
-    <div>
+    <UidContext.Provider value={uid}>
       <Navbar />
       <Router>
         <Switch>
@@ -21,7 +42,7 @@ function App() {
           <Redirect to="/" />
         </Switch>
       </Router>
-    </div>
+    </UidContext.Provider>
   );
 }
 
