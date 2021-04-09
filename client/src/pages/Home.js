@@ -14,7 +14,9 @@ const Home = () => {
           </div>
         </div>
       </form>
-      <Card />
+      <div className="d-flex flex-wrap">
+        <Card />
+      </div>
     </div>
   );
 };
