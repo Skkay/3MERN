@@ -22,7 +22,7 @@ const Card = (props) => {
             <p className="m-0">00h00 - 00h00</p>
           </div>
           <div className="col-4 col-sm-6">
-            <img src={process.env.PUBLIC_URL + '/assets/weather_icons/cloudy_light.png'} alt="cloudy" className="img-thumbnail" />
+            <img src={process.env.REACT_APP_PUBLIC_URL + '/assets/weather_icons/cloudy_light.png'} alt="cloudy" className="img-thumbnail" />
           </div>
         </div>
       </div>
