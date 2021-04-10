@@ -1,8 +1,28 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import Card from "../components/Card/Card"
 
 const SearchView = () => {
   const [search, setSearch] = useState('');
+  const [found, setFound] = useState(false)
+  const [data, setData] = useState(null);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    axios({
+      method: "GET",
+      url: `http://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${process.env.REACT_APP_OPEN_WEATHER_API_KEY}`
+    })
+    .then((res) => {
+      setData(res.data);
+      setFound(true);
+    })
+    .catch((err) => {
+      setFound(false);
+      setData(null);
+    });
+  }
 
   return (
     <div>
