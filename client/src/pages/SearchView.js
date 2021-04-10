@@ -26,11 +26,11 @@ const SearchView = () => {
 
   return (
     <div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" onChange={(e) => setSearch(e.target.value)} />
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="submit">Search</button>
       <form className="mx-3" action="" onSubmit={handleSearch} id="searchForm">
+        <div className="input-group mb-3">
+          <input type="text" className="form-control" onChange={(e) => setSearch(e.target.value)} />
+          <div className="input-group-append">
+            <button className="btn btn-primary" type="submit">Search</button>
           </div>
         </div>
       </form>
