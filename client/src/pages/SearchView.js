@@ -40,6 +40,7 @@ const SearchView = () => {
           <Card 
             name={data.name} 
             country={data.sys.country}
+            weatherMain={data.weather[0].main}
             weatherDescription={data.weather[0].description}
             temp={data.main.temp}
             tempFeelsLike={data.main.feels_like}

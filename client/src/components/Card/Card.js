@@ -4,6 +4,19 @@ const Card = (props) => {
   const width = "37.6rem";
   const [liked, setLiked] = useState(true);
 
+  let img = "foggy";
+  if (props.weatherMain === "Clouds") {
+    img = "cloudy";
+  } else if (props.weatherMain === "Drizzle" || props.weatherMain === "Rain") {
+    img = "raining";
+  } else if (props.weatherMain === "Snow") {
+    img = "snowing";
+  } else if (props.weatherMain === "Thunderstorm") {
+    img = "storm";
+  } else if (props.weatherMain === "Clear") {
+    img = "sunny";
+  }
+
   return (
     <div className="card m-3" style={{width: width}}>  
       <div className="card-body">
@@ -22,7 +35,7 @@ const Card = (props) => {
             <p className="m-0">{new Date(props.sunrise * 1000).toLocaleTimeString().slice(0, -3)} - {new Date(props.sunset * 1000).toLocaleTimeString().slice(0, -3)}</p>
           </div>
           <div className="col-4 col-sm-6">
-            <img src={process.env.REACT_APP_PUBLIC_URL + '/assets/weather_icons/cloudy_light.png'} alt="cloudy" className="img-thumbnail" />
+            <img src={`${process.env.REACT_APP_PUBLIC_URL}/assets/weather_icons/${img}_light.png`} alt={img} className="img-thumbnail" />
           </div>
         </div>
       </div>
