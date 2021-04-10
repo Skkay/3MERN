@@ -10,7 +10,7 @@ const SearchView = () => {
         <div class="input-group mb-3">
           <input type="text" class="form-control" onChange={(e) => setSearch(e.target.value)} />
           <div class="input-group-append">
-            <button class="btn btn-primary" type="button">Search</button>
+            <button class="btn btn-primary" type="submit">Search</button>
           </div>
         </div>
       </form>
