@@ -34,8 +34,25 @@ const SearchView = () => {
           </div>
         </div>
       </form>
-      <div className="d-flex flex-wrap">
-        <Card />
+      <div className="d-flex justify-content-center">
+      {found ? 
+      (
+          <Card 
+            name={data.name} 
+            country={data.sys.country}
+            weatherDescription={data.weather[0].description}
+            temp={data.main.temp}
+            tempFeelsLike={data.main.feels_like}
+            tempMin={data.main.temp_min}
+            tempMax={data.main.temp_max}
+            humidity={data.main.humidity}
+            windSpeed={data.wind.speed}
+            windDir={data.wind.deg}
+            sunrise={data.sys.sunrise}
+            sunset={data.sys.sunset} />
+      ) : (
+        <p className="text-muted">City not found...</p>
+      )}
       </div>
     </div>
   );
