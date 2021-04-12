@@ -50,7 +50,8 @@ const SearchView = () => {
             windSpeed={data.wind.speed}
             windDir={data.wind.deg}
             sunrise={data.sys.sunrise}
-            sunset={data.sys.sunset} />
+            sunset={data.sys.sunset} 
+            cityId={data.id} />
       ) : (
         <p className="text-muted">City not found...</p>
       )}
