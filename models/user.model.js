@@ -28,6 +28,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  favoriteCities: {
+    type: [Number]
+  },
 });
 
 userSchema.pre("save", async function (next) {
