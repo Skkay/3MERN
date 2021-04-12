@@ -31,6 +31,24 @@ const Card = (props) => {
           console.error(err);
         });
       }
+
+      // Remove from favorite if liked
+      else {
+        axios({
+          method: "POST",
+          url: `${process.env.REACT_APP_API_URL}/user/removeFromFavorite/${uid}`,
+          withCredentials: true,
+          data: {
+            cityId: props.cityId,
+          },
+        })
+        .then((res) => {
+          setLiked(false);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+      }
     }
     else {
       console.warn("You must be connected to save this city")
