@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const Card = (props) => {
   const width = "37.6rem";
-  const [liked, setLiked] = useState(true);
+  const [liked, setLiked] = useState(false);
 
   let img = "foggy";
   if (props.weatherMain === "Clouds") {
