@@ -5,7 +5,6 @@ import Popup from 'reactjs-popup';
 
 const Card = (props) => {
   const uid = useContext(UidContext);
-  const width = "37.6rem";
   const [liked, setLiked] = useState(false);
   const [open, setOpen] = useState(false);
   const closeModal = () => setOpen(false);
@@ -81,7 +80,7 @@ const Card = (props) => {
   }
 
   return (
-    <div className="card m-3" style={{width: width}}>  
+    <div className="card m-3" style={{width: "37.6rem"}}>  
       <div className="card-body">
         <div className="row">
           <div className="col-8 col-sm-6">
