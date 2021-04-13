@@ -1,11 +1,23 @@
 import React, { useState, useContext } from "react";
 import axios from 'axios';
 import { UidContext } from "../../components/AppContext";
+import Popup from 'reactjs-popup';
 
 const Card = (props) => {
   const uid = useContext(UidContext);
   const width = "37.6rem";
   const [liked, setLiked] = useState(false);
+  const [open, setOpen] = useState(false);
+  const closeModal = () => setOpen(false);
+  const contentStyle = { 
+    background: '#F8D7DA',
+    borderColor: '#F5C6CB',
+    color: '#721C24',
+    padding: '10px',
+    textAlign: 'center',
+    borderWidth: '0.2em',
+    borderRadius: '3px'
+  };
 
   const handleFavorite = () => {
     console.log("favorite button clicked");
@@ -51,7 +63,7 @@ const Card = (props) => {
       }
     }
     else {
-      console.warn("You must be connected to save this city")
+      setOpen(true);
     }
   }
 
@@ -90,6 +102,9 @@ const Card = (props) => {
           </div>
         </div>
       </div>
+      <Popup open={open} closeOnDocumentClick onClose={closeModal} contentStyle={contentStyle}>
+        You must be connected to save this city
+      </Popup>
     </div>
   );
 };
