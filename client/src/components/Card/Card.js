@@ -84,7 +84,7 @@ const Card = (props) => {
       <div className="card-body">
         <div className="row">
           <div className="col-8 col-sm-6">
-            <h5 className="card-title"><button className="ButtonLink p-0 mr-2" onClick={handleFavorite}><i className={liked ? "bi bi-heart-fill" : "bi bi-heart"} style={{color: "#E0245E"}} /></button>{props.name}, {props.country}</h5>
+            <h5 className="card-title"><button className="ButtonLink p-0 mr-2" onClick={handleFavorite}><i className={liked ? "bi bi-heart-fill" : "bi bi-heart"} style={{color: "#E0245E"}} /></button><a href={`/detail?lon=${props.lon}&lat=${props.lat}&city=${props.name}&code=${props.country}`}>{props.name}, {props.country}</a></h5>
             <p className="card-text text-muted text-capitalize">{props.weatherDescription}</p>
             <h1>{Math.round(props.temp - 273.15)}°C</h1>
             <p className="m-0 font-weight-bold">Feels like: {Math.round(props.tempFeelsLike - 273.15)}°C</p>
