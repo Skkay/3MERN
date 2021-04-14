@@ -13,6 +13,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/HomeView";
 import LoginView from "./pages/LoginView";
 import SearchView from "./pages/SearchView";
+import DetailView from "./pages/DetailView";
 import { UidContext } from "./components/AppContext";
 import axios from "axios";
 
@@ -44,6 +45,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/login" exact component={LoginView} />
           <Route path="/search" exact component={SearchView} />
+          <Route path="/detail" exact component={DetailView} />
           <Redirect to="/" />
         </Switch>
       </Router>
