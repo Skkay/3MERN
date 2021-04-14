@@ -15,7 +15,7 @@ const CardDetail = (props) => {
   }
 
   return (  
-    <div className="card m-3" style={{width: "30rem"}}>  
+    <div className="card m-3" style={{width: "27.5rem"}}>  
       <div className="card-body">
         <div className="row">
           <div className="col-8 col-sm-6">
