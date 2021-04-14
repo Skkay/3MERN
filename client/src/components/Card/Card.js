@@ -94,7 +94,7 @@ const Card = (props) => {
             <p className="m-0">Humidity: {props.humidity}%</p>
             <p className="m-0">Wind speed: {props.windSpeed} km/h, {['N','NE', 'E','SE', 'S','SW', 'W','NW'][Math.floor(((props.windDir+22.5)%360)/45)]}</p>
             <hr />
-            <p className="m-0">{new Date(props.sunrise * 1000).toLocaleTimeString().slice(0, -3)} - {new Date(props.sunset * 1000).toLocaleTimeString().slice(0, -3)}</p>
+            <p className="m-0 text-center">{new Date(props.sunrise * 1000).toLocaleTimeString().slice(0, -3)} - {new Date(props.sunset * 1000).toLocaleTimeString().slice(0, -3)}</p>
           </div>
           <div className="col-4 col-sm-6">
             <img src={`${process.env.REACT_APP_PUBLIC_URL}/assets/weather_icons/${img}_light.png`} alt={img} className="img-thumbnail" />
