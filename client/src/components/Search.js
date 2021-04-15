@@ -6,6 +6,7 @@ const Search = () => {
   const [search, setSearch] = useState('');
   const [found, setFound] = useState(false)
   const [data, setData] = useState(null);
+  const [showAlert, setShowAlert] = useState(false);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -21,7 +22,12 @@ const Search = () => {
     .catch((err) => {
       setFound(false);
       setData(null);
+      setShowAlert(true);
     });
+  }
+
+  const handleAlertClick = () => {
+    setShowAlert(false);
   }
 
   return (
@@ -54,9 +60,16 @@ const Search = () => {
             cityId={data.id} 
             lon={data.coord.lon}
             lat={data.coord.lat} />
-      ) : (
-        <p className="text-muted">City not found...</p>
-      )}
+      ) : [
+        (showAlert ? (
+          <div className="alert alert-warning alert-dismissible" role="alert">
+            This city was not found...
+            <button type="button" className="close" aria-label="Close" onClick={handleAlertClick}>
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        ) : (null))
+      ]}
       </div>
     </div>
   );
