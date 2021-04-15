@@ -25,8 +25,9 @@ const Home = () => {
 
   return (
     <div>
-      {endFetch ? (
-        <div className="d-flex flex-wrap justify-content-center">
+      {uid ? [
+        (endFetch ? (
+          <div className="d-flex flex-wrap justify-content-center">
         {weatherData.map((data) => (
           <Card 
             name={data.name} 
@@ -48,7 +49,10 @@ const Home = () => {
           ))}
         </div>
         ) : (
-        <p>Loading...</p>
+          <p>Loading...</p>
+        ))
+      ] : (
+        <p className="text-center">You must be connected to save and display your favorite cities. <a href="/login">Sign in / Sign up</a></p>
       )}
     </div>
   );
