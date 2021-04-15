@@ -38,9 +38,9 @@ const Navbar = () => {
             </dl>
           </li>
           {uid ? (
-            <li className="nav-item"><button className="nav-link ButtonLink" onClick={handleLogout}>Sign out</button></li>
+            <li className="nav-item" style={{width: "80px"}}><button className="nav-link ButtonLink" onClick={handleLogout}>Sign out</button></li>
           ) : (
-            <li className="nav-item"><a className="nav-link ButtonLink" href="/login">Sign in</a></li>
+            <li className="nav-item" style={{width: "80px"}}><a className="nav-link ButtonLink" href="/login">Sign in</a></li>
           )}
         </ul>
       </div>
