@@ -8,5 +8,6 @@ router.get("/logout", authController.logOut);
 router.post("/addToFavorite/:id", userController.addToFavorite);
 router.post("/removeFromFavorite/:id", userController.removeFromFavorite);
 router.get("/getFavoriteCitiesWeatherData/:id", userController.getFavoriteCitiesWeatherData);
+router.get("/isFavoriteCity/:id/:cityId", userController.isFavoriteCity);
 
 module.exports = router;

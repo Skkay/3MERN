@@ -86,3 +86,20 @@ async function getFavoriteCitiesDataFromApi(ids) {
 
   return data;
 }
+
+module.exports.isFavoriteCity = async (req, res) => {
+  if (!ObjectID.isValid(req.params.id)) {
+    return res.status(400).send("Unknown user id: " + req.params.id);
+  }
+
+  try {
+    const favoriteCities = await UserModel.findById(req.params.id).select("favoriteCities");
+    let isFavoriteCity = false;
+    if (favoriteCities.favoriteCities.includes(req.params.cityId)) {
+      isFavoriteCity = true;
+    }
+    res.status(200).json({isFavoriteCity: isFavoriteCity});
+  } catch (err) {
+    res.status(400).send({ err });
+  }
+}
