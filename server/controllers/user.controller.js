@@ -1,5 +1,6 @@
 const UserModel = require("../models/user.model");
 const ObjectID = require("mongoose").Types.ObjectId;
+const axios = require("axios");
 
 module.exports.addToFavorite = async (req, res) => {
   if (!ObjectID.isValid(req.params.id)) {
@@ -64,4 +65,23 @@ module.exports.getFavoriteCities = async (req, res) => {
   } catch (err) {
     res.status(400).send({ err });
   }
+}
+
+async function getFavoriteCitiesDataFromApi(ids) {
+  const data = [];
+
+  for (const id of ids) {
+    await axios({
+      method: "GET",
+      url: `http://api.openweathermap.org/data/2.5/weather?id=${id}&appid=${process.env.OPEN_WEATHER_API_KEY}`
+    })
+    .then((res) => {
+      data.push(res.data);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  }
+
+  return data;
 }
