@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import axios from 'axios';
 import { UidContext } from "../../components/AppContext";
 import Popup from 'reactjs-popup';
@@ -17,6 +17,21 @@ const Card = (props) => {
     borderWidth: '0.2em',
     borderRadius: '3px'
   };
+
+  // Set liked state to 'true' if it's a favorite city
+  useEffect(() => {
+    if (!uid) return;
+
+    fetch(`${process.env.REACT_APP_API_URL}/user/isFavoriteCity/${uid}/${props.cityId}`)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log("IS FAVORITE: ", responseJson.isFavoriteCity)
+        setLiked(responseJson.isFavoriteCity);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [uid, props.cityId])
 
   const handleFavorite = () => {
     console.log("favorite button clicked");
