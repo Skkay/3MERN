@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { UidContext } from "../components/AppContext";
 import Card from "../components/Card/Card"
+import Search from "../components/Search";
 
 const Home = () => {
   const uid = useContext(UidContext);
@@ -25,6 +26,8 @@ const Home = () => {
 
   return (
     <div>
+      <Search />
+      <hr className="m-4" />
       {uid ? [
         (endFetch ? (
           <div className="d-flex flex-wrap justify-content-center">

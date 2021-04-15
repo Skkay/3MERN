@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import Card from "../components/Card/Card"
+import Card from "./Card/Card"
 
-const SearchView = () => {
+const Search = () => {
   const [search, setSearch] = useState('');
   const [found, setFound] = useState(false)
   const [data, setData] = useState(null);
@@ -62,4 +62,4 @@ const SearchView = () => {
   );
 };
 
-export default SearchView;
+export default Search;

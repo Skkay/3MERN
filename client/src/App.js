@@ -44,7 +44,6 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/login" exact component={LoginView} />
-          <Route path="/search" exact component={SearchView} />
           <Route path="/detail" exact component={DetailView} />
           <Redirect to="/" />
         </Switch>
