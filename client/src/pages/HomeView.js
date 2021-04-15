@@ -22,11 +22,36 @@ const Home = () => {
 
   }, [uid]);
 
+
   return (
     <div>
-      Home page
+      {endFetch ? (
+        <div className="d-flex flex-wrap justify-content-center">
+        {weatherData.map((data) => (
+          <Card 
+            name={data.name} 
+            country={data.sys.country}
+            weatherMain={data.weather[0].main}
+            weatherDescription={data.weather[0].description}
+            temp={data.main.temp}
+            tempFeelsLike={data.main.feels_like}
+            tempMin={data.main.temp_min}
+            tempMax={data.main.temp_max}
+            humidity={data.main.humidity}
+            windSpeed={data.wind.speed}
+            windDir={data.wind.deg}
+            sunrise={data.sys.sunrise}
+            sunset={data.sys.sunset} 
+            cityId={data.id} 
+            lon={data.coord.lon}
+            lat={data.coord.lat} />
+          ))}
+        </div>
+        ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
-};
+}
 
 export default Home;
