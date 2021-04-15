@@ -27,7 +27,7 @@ const LoginForm = () => {
 
   return (
     <div className="card-body">
-      <h4>Login</h4>
+      <h4>Sign in</h4>
       <hr />
       <form action="" onSubmit={handleLogin} id="loginForm">
         <div className="form-group">
@@ -38,7 +38,7 @@ const LoginForm = () => {
           <label htmlFor="password">Password</label>
           <input type="password" className="form-control" id="password" onChange={(e) => setPassword(e.target.value)}/>
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-primary">Sign in</button>
       </form>
     </div>
   );

@@ -31,7 +31,7 @@ const RegisterForm = () => {
 
   return (
     <div className="card-body">
-      <h4>Register</h4>
+      <h4>Sign up</h4>
       <hr />
       <form action="" onSubmit={handleRegister} id="registerForm">
         <div className="form-group">
@@ -50,7 +50,7 @@ const RegisterForm = () => {
           <label htmlFor="password">Password</label>
           <input type="password" className="form-control" id="password" required onChange={(e) => setPassword(e.target.value)} />
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-primary">Create account</button>
       </form>
     </div>
   );

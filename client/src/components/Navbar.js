@@ -43,13 +43,13 @@ const Navbar = () => {
             {uid ? (
               <ul className="navbar-nav">
                 <li className="nav-item">
-                    <button className="nav-link ButtonLink" onClick={handleLogout}>Deconnexion</button>
+                    <button className="nav-link ButtonLink" onClick={handleLogout}>Sign out</button>
                 </li>
               </ul>
             ) : (
             <ul className="navbar-nav">
               <li className="nav-item">
-                  <a className="nav-link" href="/login">Connexion</a>
+                  <a className="nav-link" href="/login">Sign in or Sign up</a>
               </li>
             </ul>
             )}
