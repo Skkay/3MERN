@@ -25,7 +25,6 @@ export default class DetailView extends React.Component {
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({ data: responseJson });
-        console.log(this.state.data.daily[0]);
       })
       .catch((error) => {
         console.error(error);
