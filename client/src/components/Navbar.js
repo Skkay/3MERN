@@ -27,27 +27,22 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="navbar navbar-expand-sm navbar-light bg-light mb-4">
-      <div className="mx-auto d-sm-flex d-block flex-sm-nowrap">
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse text-center" id="navbarText">
-            <ul className="navbar-nav">
-              <li className="nav-item"><a className="nav-link ButtonLink" href="/">Home</a></li>
-              <li className="nav-item mx-4">
-                <dl>
-                  <li><Clock format={'dddd, MMMM D'} ticking={true} /></li>
-                  <li><Clock format={'HH:mm:ss'} ticking={true} /></li>
-                </dl>
-              </li>
-              {uid ? (
-                <li className="nav-item"><button className="nav-link ButtonLink" onClick={handleLogout}>Sign out</button></li>
-              ) : (
-                <li className="nav-item"><a className="nav-link ButtonLink" href="/login">Sign in or Sign up</a></li>
-              )}
-            </ul>
-        </div>
+    <nav className="navbar navbar-expand navbar-light bg-light mb-4">
+      <div className="mx-auto text-center">
+        <ul className="navbar-nav">
+          <li className="nav-item"><a className="nav-link ButtonLink" href="/">Home</a></li>
+          <li className="nav-item mx-4">
+            <dl>
+              <li><Clock format={'dddd, MMMM D'} ticking={true} /></li>
+              <li><Clock format={'HH:mm:ss'} ticking={true} /></li>
+            </dl>
+          </li>
+          {uid ? (
+            <li className="nav-item"><button className="nav-link ButtonLink" onClick={handleLogout}>Sign out</button></li>
+          ) : (
+            <li className="nav-item"><a className="nav-link ButtonLink" href="/login">Sign in</a></li>
+          )}
+        </ul>
       </div>
     </nav>
   );
