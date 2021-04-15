@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { UidContext } from "../components/AppContext";
 import axios from 'axios';
 import cookie from "js-cookie";
+import Clock from "react-live-clock";
+
 
 const Navbar = () => {
   const uid = useContext(UidContext);
@@ -25,31 +27,26 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
-      <div className="container">
-        <a className="navbar-brand" href="/">3MERN</a>
+    <nav className="navbar navbar-expand-sm navbar-light bg-light mb-4">
+      <div className="mx-auto d-sm-flex d-block flex-sm-nowrap">
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarText">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
-                  <a className="nav-link" href="/">Home</a>
-              </li>
-            </ul>
-            {uid ? (
-              <ul className="navbar-nav">
-                <li className="nav-item">
-                    <button className="nav-link ButtonLink" onClick={handleLogout}>Sign out</button>
-                </li>
-              </ul>
-            ) : (
+        <div className="collapse navbar-collapse text-center" id="navbarText">
             <ul className="navbar-nav">
-              <li className="nav-item">
-                  <a className="nav-link" href="/login">Sign in or Sign up</a>
+              <li className="nav-item"><a className="nav-link ButtonLink" href="/">Home</a></li>
+              <li className="nav-item mx-4">
+                <dl>
+                  <li><Clock format={'dddd, MMMM D'} ticking={true} /></li>
+                  <li><Clock format={'HH:mm:ss'} ticking={true} /></li>
+                </dl>
               </li>
+              {uid ? (
+                <li className="nav-item"><button className="nav-link ButtonLink" onClick={handleLogout}>Sign out</button></li>
+              ) : (
+                <li className="nav-item"><a className="nav-link ButtonLink" href="/login">Sign in or Sign up</a></li>
+              )}
             </ul>
-            )}
         </div>
       </div>
     </nav>
