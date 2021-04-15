@@ -54,11 +54,11 @@ module.exports.removeFromFavorite = async (req, res) => {
   }
 }
 
-module.exports.getFavoriteCities = async (req, res) => {
   if (!ObjectID.isValid(req.params.id)) {
     return res.status(400).send("Unknown user id: " + req.params.id);
   }
 
+module.exports.getFavoriteCitiesWeatherData = async (req, res) => {
   try {
     const favoriteCities = await UserModel.findById(req.params.id).select("favoriteCities");
     res.status(200).json(favoriteCities);

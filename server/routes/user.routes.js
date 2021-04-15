@@ -7,6 +7,6 @@ router.post("/login", authController.signIn);
 router.get("/logout", authController.logOut);
 router.post("/addToFavorite/:id", userController.addToFavorite);
 router.post("/removeFromFavorite/:id", userController.removeFromFavorite);
-router.get("/getFavoriteCities/:id", userController.getFavoriteCities);
+router.get("/getFavoriteCitiesWeatherData/:id", userController.getFavoriteCitiesWeatherData);
 
 module.exports = router;
