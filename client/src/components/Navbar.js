@@ -6,12 +6,23 @@ import Clock from "react-live-clock";
 
 
 const Navbar = () => {
+  const html = document.getElementsByTagName('html')[0];
+  const [theme, setTheme] = useState();
   const uid = useContext(UidContext);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
-  }, [])
+
+    // Handle theme mode on page load
+    if (cookie.get("theme") === "dark") {
+      html.style.filter = "invert(0.9) hue-rotate(180deg)";
+      setTheme('dark');
+    } else {
+      html.style.filter = "";
+      setTheme('light');
+    }
+  }, [html.style])
 
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
@@ -33,6 +44,18 @@ const Navbar = () => {
       .catch((err) => console.log(err));
     
     window.location = "/";
+  }
+
+  const handleSwitchTheme = () => {
+    if (cookie.get("theme") === "light") {
+      cookie.set("theme", "dark");
+      html.style.filter = "invert(0.9) hue-rotate(180deg)";
+      setTheme('dark');
+    } else {
+      cookie.set("theme", "light");
+      html.style.filter = "";
+      setTheme('light');
+    }
   }
 
   return (
@@ -57,6 +80,7 @@ const Navbar = () => {
           )}
         </ul>
       </div>
+      <button className="ButtonLink" onClick={handleSwitchTheme}><i className={theme === "dark" ? "bi bi-moon-stars-fill" : "bi bi-sun-fill"} style={{color: "#1E1E1E"}} /></button>
     </nav>
   );
 };
