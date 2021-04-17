@@ -11,7 +11,6 @@ require("dotenv").config({ path: path.join(__dirname, "config/.env") });
 require("dotenv").config({ path: path.join(__dirname, "config/.env.local") });
 require("./config/database.js");
 
-const port = process.env.PORT;
 const cors = require("cors");
 const corsOptions = {
     origin: process.env.CLIENT_URL,
@@ -38,6 +37,4 @@ app.get("/require_auth", requireAuth, (req, res) => {
 app.use("/", homeRoutes);
 app.use("/user", userRoutes);
 
-app.listen(port, () => {
-  console.log(`Listening on http://localhost:${port}`);
-});
+module.exports = app;
